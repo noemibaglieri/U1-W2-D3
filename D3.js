@@ -203,13 +203,13 @@ console.log(crewMass);
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
 
-if (crewMass <= 500) {
+if (crewMass < 500) {
   console.log("Ship is underloaded");
-} else if (crewMass > 500 && crewMass < 700) {
+} else if (crewMass >= 500 && crewMass < 700) {
   console.log("Ship is half loaded");
-} else if (crewMass > 700 && crewMass < 900) {
+} else if (crewMass >= 700 && crewMass < 900) {
   console.log("Warning: Load is over 700");
-} else if (crewMass > 900 && crewMass < 1000) {
+} else if (crewMass >= 900 && crewMass < 1000) {
   console.log("Critical Load: Over 900");
 } else {
   console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
@@ -232,6 +232,30 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
 */
 
+console.log("Length PRIMA", charactersNames.length);
+
+for (let i = 0; i < femaleCharacters.length; i++) {
+  const femCharName = femaleCharacters[i].name;
+  console.log(femCharName);
+
+  for (let j = 0; j < charactersNames.length; j++) {
+    const charName = charactersNames[j];
+
+    if (femCharName === charName) {
+      console.log(femCharName + " si trova sull'indice " + j + " dell'array charactersNames");
+
+      charactersNames.splice(j, 1);
+    }
+  }
+}
+console.log("Length DOPO", charactersNames.length);
+console.log(femaleCharacters);
+console.log(charactersNames);
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
 */
+
+const randomCharIndex = Math.floor(Math.random() * starWarsCharacters.length);
+const charFound = starWarsCharacters[randomCharIndex];
+
+console.log(charFound.name + " è alto " + charFound.height + "cm e ha gli occhi di colore " + charFound.eye_color);
