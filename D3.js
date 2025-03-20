@@ -2,7 +2,7 @@ const starWarsCharacters = [
   {
     name: "Luke Skywalker",
     height: 172,
-    mass: 277,
+    mass: 0,
     hair_color: "blond",
     skin_color: "fair",
     eye_color: "blue",
@@ -52,7 +52,7 @@ const starWarsCharacters = [
   {
     name: "Owen Lars",
     height: 178,
-    mass: 120,
+    mass: 0,
     hair_color: "brown, grey",
     skin_color: "light",
     eye_color: "blue",
@@ -62,7 +62,7 @@ const starWarsCharacters = [
   {
     name: "Beru Whitesun lars",
     height: 165,
-    mass: 75,
+    mass: 0,
     hair_color: "brown",
     skin_color: "light",
     eye_color: "blue",
@@ -183,10 +183,11 @@ console.log(eyeColor);
 
 let crewMass = 0;
 let counter = 0;
+
 while (counter < starWarsCharacters.length) {
-  const char = starWarsCharacters[i];
+  const char = starWarsCharacters[counter];
   crewMass += char.mass;
-  i++;
+  counter++;
 }
 console.log(crewMass);
 
@@ -202,9 +203,29 @@ console.log(crewMass);
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
 
+if (crewMass <= 500) {
+  console.log("Ship is underloaded");
+} else if (crewMass > 500 && crewMass < 700) {
+  console.log("Ship is half loaded");
+} else if (crewMass > 700 && crewMass < 900) {
+  console.log("Warning: Load is over 700");
+} else if (crewMass > 900 && crewMass < 1000) {
+  console.log("Critical Load: Over 900");
+} else {
+  console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
+}
+
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
+
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  const char = starWarsCharacters[i];
+  if (char.gender === "n/a") {
+    char.gender = "robot";
+  }
+  console.log(char.gender);
+}
 
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
